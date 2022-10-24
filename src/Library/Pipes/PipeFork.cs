@@ -29,10 +29,10 @@ namespace CompAndDel.Pipes
         /// y envía la original por una cañería y el duplicado por otra.
         /// </summary>
         /// <param name="picture">imagen a filtrar y enviar a las siguientes cañerías</param>
-        public IPicture Send(IPicture picture)
+        public IPicture Send(IPicture picture, string path)
         {
-            next2Pipe.Send(picture.Clone());
-            return this.nextPipe.Send(picture);
+            next2Pipe.Send(picture.Clone(), path);
+            return this.nextPipe.Send(picture, path);
         }
     }
 }
